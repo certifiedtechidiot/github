@@ -809,11 +809,20 @@
         let currentFilter = 'all';
         let currentSort = 'featured';
 
+        
+            function saveCart() {
+                localStorage.setItem('cart', JSON.stringify(cart));
+            }
+
         // Initialize the page
-        document.addEventListener('DOMContentLoaded', function() {
-            displayProducts(products);
-            updateCartCount();
-        });
+            document.addEventListener('DOMContentLoaded', function() {
+                const savedCart = localStorage.getItem('cart');
+                if (savedCart) {
+                    cart = JSON.parse(savedCart);
+                }
+                displayProducts(products);
+                updateCartCount();
+            });
 
         // Display products
         function displayProducts(productsToShow) {
@@ -917,12 +926,15 @@
             
             updateCartCount();
             showNotification(`${product.title} added to cart!`);
+            saveCart();   
+
         }
 
         // Update cart count
         function updateCartCount() {
             const count = cart.reduce((total, item) => total + item.quantity, 0);
             document.getElementById('cartCount').textContent = count;
+            saveCart();
         }
 
         // Toggle cart modal
@@ -984,6 +996,7 @@
                     removeFromCart(productId, type);
                 } else {
                     updateCartCount();
+                    saveCart();
                     displayCartItems();
                 }
             }
@@ -993,6 +1006,7 @@
         function removeFromCart(productId, type) {
             cart = cart.filter(item => !(item.id === productId && item.type === type));
             updateCartCount();
+            saveCart();
             displayCartItems();
         }
 
@@ -1010,6 +1024,7 @@
             cart = [];
             updateCartCount();
             toggleCart();
+            saveCart();
         }
 
         // Show notification
@@ -1060,3 +1075,4 @@
     </script>
 </body>
 </html>
+
