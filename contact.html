@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SYHLE6EZMM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-SYHLE6EZMM');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - whomake.shop</title>
@@ -158,6 +149,7 @@
             border-radius: 8px;
             font-size: 1rem;
             transition: border-color 0.3s ease;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         .form-input:focus, .form-textarea:focus {
@@ -186,6 +178,12 @@
         .submit-btn:hover {
             background: #555;
             transform: translateY(-2px);
+        }
+
+        .submit-btn:disabled {
+            background: #999;
+            cursor: not-allowed;
+            transform: none;
         }
 
         .contact-item {
@@ -234,6 +232,32 @@
             transform: translateY(-2px);
         }
 
+        /* Success Message */
+        .success-message {
+            background: #10b981;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: none;
+            animation: slideDown 0.3s ease;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .nav-container {
@@ -272,7 +296,7 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
                 <li><a href="terms.html">Terms & Conditions</a></li>
                 <li><a href="winner.html">Winners</a></li>
             </ul>
@@ -296,7 +320,13 @@
       
             <div class="contact-form">
                 <h2 class="form-title">Send us a Message</h2>
-                <form id="contactForm">
+                
+                <div class="success-message" id="successMessage">
+                    ✓ Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.
+                </div>
+
+                <!-- FORMSPREE INTEGRATION - Replace YOUR_FORM_ID with your actual Formspree form ID -->
+                <form id="contactForm" action="https://formspree.io/f/mblzgzqq" method="POST">
                     <div class="form-group">
                         <label for="name" class="form-label">Full Name</label>
                         <input type="text" id="name" name="name" class="form-input" required>
@@ -313,7 +343,14 @@
                         <label for="message" class="form-label">Message</label>
                         <textarea id="message" name="message" class="form-textarea" required placeholder="Tell us about your project or question..."></textarea>
                     </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
+                    
+                    <!-- Hidden field to identify form submissions -->
+                    <input type="hidden" name="_subject" value="New Contact Form Submission - whomake.shop">
+                    
+                    <!-- Formspree will redirect to this page after submission -->
+                    <input type="hidden" name="_next" value="contact.html?success=true">
+                    
+                    <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
                 </form>
             </div>
 
@@ -336,7 +373,7 @@
                         <p>+91 7083930556</p>
                         <h3>Whatsapp</h3>
                         <p>+91 7083930556</p>
-                        <p>Mon-saturday, 2:30 PM - 10:00 PM IST</p>
+                        <p>Mon-Saturday, 2:30 PM - 10:00 PM IST</p>
                     </div>
                 </div>
 
@@ -380,7 +417,7 @@
                 <p style="color: #666; margin-bottom: 1.5rem;">Yes! We offer custom development services. Contact us with your requirements for a quote.</p>
                 
                 <h3 style="color: #333; margin-bottom: 0.5rem;">What's the difference between Buy and Rent?</h3>
-                <p style="color: #666; margin-bottom: 1.5rem;">Buy gives you lifetime access and source code. IN Rent YOU CAN USE THE PRODUCT BY GIVING THE EVERY DAY FEES</p>
+                <p style="color: #666; margin-bottom: 1.5rem;">Buy gives you lifetime access and source code. Rent allows you to use the product by paying daily fees.</p>
                 
                 <h3 style="color: #333; margin-bottom: 0.5rem;">Do you offer refunds?</h3>
                 <p style="color: #666;">We offer a 7-day money-back guarantee if the project doesn't meet your expectations.</p>
@@ -389,60 +426,36 @@
     </main>
 
     <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const subject = formData.get('subject');
-            const message = formData.get('message');
-            
-            // Show success message
-            showNotification('Thank you for your message! We\'ll get back to you within 24 hours.');
-            
-            // Reset form
-            this.reset();
+        // Check if redirected back with success parameter
+        window.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('success') === 'true') {
+                const successMessage = document.getElementById('successMessage');
+                successMessage.classList.add('show');
+                
+                // Remove success parameter from URL
+                window.history.replaceState({}, document.title, 'contact.html');
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                }, 5000);
+            }
         });
 
-        function showNotification(message) {
-            const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: #10b981;
-                color: white;
-                padding: 1rem 2rem;
-                border-radius: 8px;
-                z-index: 3000;
-                animation: slideIn 0.3s ease;
-                font-weight: 600;
-                max-width: 400px;
-            `;
-            notification.textContent = message;
-            
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                notification.remove();
-            }, 5000);
-        }
-
-        // Add CSS animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideIn {
-                from { transform: translateX(100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-        `;
-        document.head.appendChild(style);
+        // Optional: Add loading state to submit button
+        const form = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        
+        form.addEventListener('submit', function() {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+        });
     </script>
+    
     <footer style="text-align:center; padding:15px; font-size:14px; color:#666; border-top:1px solid #ddd; margin-top:40px;">
-    © 2025 whomake.shop. All rights reserved.
-</footer>
+        © 2025 whomake.shop. All rights reserved.
+    </footer>
 </body>
 </html>
 
