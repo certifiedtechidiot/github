@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions - whomake.shop</title>
+    
+    <!-- Google Analytics - Replace G-XXXXXXXXXX with your actual Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fafafa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #333, transparent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #333;
+        }
+
+        .cart-btn {
+            background: #333;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .cart-btn:hover {
+            background: #555;
+            transform: translateY(-2px);
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .page-subtitle {
+            color: #666;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .terms-content {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+
+        .terms-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .terms-section h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 1rem;
+            border-left: 4px solid #333;
+            padding-left: 1rem;
+        }
+
+        .terms-section h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .terms-section p {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .terms-section ul {
+            margin-left: 2rem;
+            color: #666;
+        }
+
+        .terms-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.8;
+        }
+
+        .highlight-box {
+            background: #f8f9fa;
+            border-left: 4px solid #10b981;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+        }
+
+        .back-btn {
+            background: #333;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #555;
+            transform: translateY(-2px);
+        }
+
+        .menu-btn {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                position: relative;
+                justify-content: center;
+                padding: 1.5rem 1rem;
+                min-height: 70px;
+            }
+
+            .logo {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .menu-btn {
+                display: block;
+                position: absolute;
+                left: 1rem;
+                top: 1.2rem;
+                font-size: 1.8rem;
+                background: none;
+                border: none;
+                cursor: pointer;
+                color: #333;
+            }
+
+            .cart-btn {
+                position: absolute;
+                right: 1rem;
+                top: 0.8rem;
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                gap: 1rem;
+                background: white;
+                padding: 1rem;
+                position: absolute;
+                top: 70px;
+                left: 10px;
+                right: 10px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+                border-radius: 8px;
+                z-index: 1500;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .main-content {
+                padding: 1rem;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .terms-content {
+                padding: 2rem;
+            }
+
+            .terms-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">whomake</a>
+            
+            <button class="menu-btn" onclick="toggleMenu()">☰</button>
+            
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="terms.html">Terms & Conditions</a></li>
+                <li><a href="winner.html">Winners</a></li>
+            </ul>
+
+            <a href="index.html" class="cart-btn">Back to Shop</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <a href="index.html" class="back-btn">← Back to Products</a>
+        
+        <div class="page-header">
+            <h1 class="page-title">Terms & Conditions</h1>
+            <p class="page-subtitle">Please read these terms carefully before using our services</p>
+        </div>
+
+        <div class="terms-content">
+            <div class="terms-section">
+                <h2>1. Introduction</h2>
+                <p>Welcome to whomake By accessing and using our website and purchasing our products, you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, please do not use our services.</p>
+                <p>These terms apply to all visitors, users, and customers who access or use our service.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>2. Product Categories & Purchase Options</h2>
+                
+                <h3>2.1 Award Winning Projects</h3>
+                <p>Our premium tier projects offer two purchase options:</p>
+                <ul>
+                    <li><strong>Buy:</strong> Lifetime access with full source code, documentation, and 30 days of free support</li>
+                    <li><strong>Rent:</strong> 6-month access at 30% of the purchase price with documentation and limited support</li>
+                </ul>
+
+                <h3>2.2 Cost Effective & Simple Learning Projects</h3>
+                <p>These projects are available for purchase only (Buy option). They include:</p>
+                <ul>
+                    <li>Lifetime access to project files</li>
+                    <li>Complete documentation</li>
+                    <li>15 Days of free support</li>
+                </ul>
+            </div>
+
+            <div class="terms-section">
+                <h2>3. Pricing & Payment</h2>
+                <p>All prices are listed in Indian Rupees (INR) and are subject to change without notice. Payment must be completed before project delivery.</p>
+                <ul>
+                    <li>We accept payments via WhatsApp order confirmation</li>
+                    <li>Prices include all applicable taxes unless otherwise stated</li>
+                    <li>Rental fees are non-refundable once the access period begins</li>
+                </ul>
+            </div>
+
+            <div class="terms-section">
+                <h2>4. Refund Policy</h2>
+                <div class="highlight-box">
+                    <p><strong>7-Day Money-Back Guarantee:</strong> We offer a full refund within 7 days of purchase if the project does not meet your expectations or does not function as described.</p>
+                </div>
+                <p>Refund requests must include:</p>
+                <ul>
+                    <li>Order confirmation details</li>
+                    <li>Reason for refund request</li>
+                    <li>Documentation of any technical issues encountered</li>
+                </ul>
+                <p>Refunds will be processed within 7-10 business days after approval.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>5. Support & Warranty</h2>
+                <h3>5.1 Free Support Period</h3>
+                <p>All purchased projects include 30 days of free support from the date of purchase. Support includes:</p>
+                <ul>
+                    <li>Technical assistance with project setup</li>
+                    <li>Bug fixes and troubleshooting</li>
+                    <li>Clarification on documentation</li>
+                </ul>
+
+                <h3>5.2 Extended Support</h3>
+                <p>After the free support period, extended support is available at additional cost. Contact us for pricing.</p>
+
+                <h3>5.3 Warranty</h3>
+                <p>We warrant that our projects will function as described in the product documentation. This warranty does not cover:</p>
+                <ul>
+                    <li>Modifications made by the customer</li>
+                    <li>Incompatibility with third-party software or hardware</li>
+                    <li>Issues arising from improper use or installation</li>
+                </ul>
+            </div>
+
+            <div class="terms-section">
+                <h2>6. Intellectual Property Rights</h2>
+                <h3>6.1 Purchase (Buy Option)</h3>
+                <p>When you purchase a project, you receive:</p>
+                <ul>
+                    <li>Right to use the source code for personal or commercial purposes</li>
+                    <li>Right to modify and customize the project</li>
+                    <li>No right to resell or redistribute the original source code</li>
+                </ul>
+
+            <h3>6.2 Rental Option</h3>
+            <p>When you rent a project, you are granted temporary access only. Rental access includes the following terms:</p>
+            <ul>
+                <li>Full product cost must be paid upfront at the time of rental</li>
+                <li>Daily rental charges will be deducted from this amount based on the agreed rental rate</li>
+                <li>After the rental period ends, the remaining balance will be refunded to you</li>
+                <li>Early return is possible, but you must inform us at least 1 day in advance</li>
+                <li>If we (the seller) fail to collect the product on the agreed date, no deduction will be made for that day</li>
+                <li>If you (the customer) fail to return the product on the agreed date, we reserve the right to continue daily deductions until the product is returned</li>
+                <li>You are not allowed to access, modify, or redistribute the source code</li>
+                <li>You are not allowed to resell or use the project for commercial redistribution</li>
+                <li>If the rented product is damaged, misused, or altered, the seller reserves the right to deduct the necessary charges from your rental balance</li>
+            </ul>
+
+<footer style="text-align:center; padding:15px; font-size:14px; color:#666; border-top:1px solid #ddd; margin-top:40px;">
+    © 2025 whomake.shop. All rights reserved.
+</footer>            

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Champions - whomake.shop</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fafafa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* ===== Header ===== */
+    .header {
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #666;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #333;
+    }
+
+    .back-shop-btn {
+      background: #333;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .back-shop-btn:hover {
+      background: #555;
+      transform: translateY(-2px);
+    }
+
+    /* ===== Main ===== */
+    .main-content {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+
+    .back-products-btn {
+      display: inline-block;
+      background: #333;
+      color: white;
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      transition: background 0.3s ease;
+    }
+
+    .back-products-btn:hover {
+      background: #555;
+    }
+
+    .page-header {
+      margin-bottom: 2rem;
+    }
+
+    .page-title {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .page-subtitle {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    /* ===== Winners list ===== */
+    .winners-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .winner-item {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .winner-item img {
+      width: 220px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .winner-text {
+      flex: 1;
+    }
+
+    .winner-text h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .winner-text p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .winner-item {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .winner-item img {
+        width: 100%;
+        max-width: 320px;
+      }
+
+      .nav-links {
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav-container">
+      <a href="index.html" class="logo">whomake.shop</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="terms.html">Terms & Conditions</a></li>
+      </ul>
+      <a href="index.html"><button class="back-shop-btn">Back to Shop</button></a>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <main class="main-content">
+    <a href="index.html" class="back-products-btn">← Back to Products</a>
+
+    <div class="page-header">
+      <h1 class="page-title">Our Champions</h1>
+      <p class="page-subtitle">Students who used our projects and won 1st place in science exhibitions.</p>
+    </div>
+
+    <div class="winners-list">
+      <div class="winner-item">
+        <img src="images/winner1.png" alt="Winner 1">
+        <div class="winner-text">
+          <h3>Science Fair 2025 - 1st Place</h3>
+          <p>Smart Stick for Blind – awarded for innovation in accessibility.</p>
+        </div>
+      </div>
+
+      <div class="winner-item">
+        <img src="images/winner2.png" alt="Winner 2">
+        <div class="winner-text">
+          <h3>Robotics Expo Champion</h3>
+          <p>Hand Gesture Robot – intuitive robotics made simple.</p>
+        </div>
+      </div>
+
+      <div class="winner-item">
+        <img src="images/winner3.png" alt="Winner 3">
+        <div class="winner-text">
+          <h3>Innovation Challenge Winner</h3>
+          <p>Spider Robot – servo-powered biomimetic innovation.</p>
+        </div>
+      </div>
+      <!-- Add more winners up to 10 -->
+    </div>
+  </main>
+</body>
+</html>
