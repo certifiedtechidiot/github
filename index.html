@@ -1,10 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="/ChatGPT.png">
-    <title>whomake.shop - Premium Projects Marketplace</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+    <link rel="icon" type="image/png" href="/ChatGPT.png" />
+
+
+    <link rel="canonical" href="https://whomake.shop/" />
+    <meta name="robots" content="index, follow" />
+
+
+    <title>WhoMake — Official Site | Robotics & DIY Project Kits</title>
+    <meta name="description" content="WhoMake is the official marketplace for award‑winning robotics and DIY project kits. Buy or rent curated builds with fast support and secure checkout." />
+
+
+    <link rel="alternate" href="https://whomake.shop/" hreflang="en" />
+
+
+    <meta property="og:title" content="WhoMake — Official Site | Robotics & DIY Project Kits" />
+    <meta property="og:description" content="WhoMake is the official marketplace for award‑winning robotics and DIY project kits. Buy or rent curated builds with fast support and secure checkout." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://whomake.shop/" />
+    <meta property="og:image" content="https://whomake.shop/Chat.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="WhoMake" />
+
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="WhoMake — Official Site | Robotics & DIY Project Kits" />
+    <meta name="twitter:description" content="WhoMake is the official marketplace for award‑winning robotics and DIY project kits. Buy or rent curated builds with fast support and secure checkout." />
+    <meta name="twitter:image" content="https://whomake.shop/Chat.png" />
+
+
+    <meta name="theme-color" content="#0B0F1A" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "WhoMake",
+      "url": "https://whomake.shop/",
+      "logo": "https://whomake.shop/Chat.png",
+      "alternateName": "whomake.shop",
+      "description": "Official marketplace for robotics and DIY project kits: buy or rent curated builds.",
+      "brand": {
+        "@type": "Brand",
+        "name": "WhoMake"
+      },
+      "sameAs": [
+        "https://www.instagram.com/whomakeshop/",
+        "https://www.youtube.com/@whomakeshop"
+      ],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "availableLanguage": ["English"],
+          "url": "https://whomake.shop/contact.html"
+        }
+      ]
+    }
+    </script>
+
     <style>
         * {
             margin: 0;
@@ -587,6 +647,22 @@
                 text-align: center;
             }
         }
+
+        /* Simple footer styles */
+        footer {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            color: #666;
+        }
+        footer nav a {
+            color: #666;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        footer nav a:hover {
+            color: #333;
+        }
     </style>
 </head>
 <body>
@@ -613,7 +689,8 @@
 
     <main class="main-content">
         <div class="page-header">
-            <h1 class="page-title">Projects Catalog</h1>
+ 
+            <h1 class="page-title">WhoMake: Official Robotics & DIY Project Kits</h1>
             <p class="page-subtitle">Explore curated projects across three tiers. Clean, modern, and ready to go.</p>
         </div>
 
@@ -636,6 +713,7 @@
              Products will be dynamically loaded here 
         </div>
     </main>
+
     <div class="product-modal" id="productModal">
         <div class="product-modal-content">
             <div class="modal-header">
@@ -676,6 +754,14 @@
             <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
         </div>
     </div>
+
+    <footer>
+        <nav aria-label="Social links">
+            <a href="https://www.instagram.com/REPLACE_WITH_YOUR_HANDLE" target="_blank" rel="noopener">Instagram</a>
+            <span aria-hidden="true"> · </span>
+            <a href="https://www.youtube.com/@REPLACE_WITH_YOUR_HANDLE" target="_blank" rel="noopener">YouTube</a>
+        </nav>
+    </footer>
 
     <script>
 const products = 
@@ -965,6 +1051,7 @@ const products =
 
             document.getElementById('modalTitle').textContent = selectedProduct.title;
             document.getElementById('modalImage').src = selectedProduct.image;
+            document.getElementById('modalImage').alt = selectedProduct.title; // accessibility/SEO improvement
             document.getElementById('modalDescription').textContent = selectedProduct.info;
             document.getElementById('modalPrice').textContent = `₹${selectedProduct.price.toLocaleString()}`;
             
@@ -1227,9 +1314,3 @@ const products =
     </script>
 </body>
 </html>
-
-
-
-
-
-
