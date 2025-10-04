@@ -13,7 +13,7 @@
 
 
     <title>WhoMake — Official Site | Robotics & DIY Project Kits</title>
-    <meta name="description" content="WhoMake is the official marketplace for award‑winning robotics and DIY project kits. Buy or rent curated builds with fast support and secure checkout." />
+    <meta name="description" content="WhoMake - is the official marketplace for award‑winning robotics and DIY project kits. Buy or rent curated builds with fast support and secure checkout." />
 
 
     <link rel="alternate" href="https://whomake.shop/" hreflang="en" />
@@ -228,6 +228,12 @@
             color: white;
             border-color: #333;
         }
+                .product-price span {
+            font-size: 1rem;
+            color: #666;
+            margin-left: 6px;
+        }
+
 
         /* Product Grid */
         .products-grid {
@@ -770,7 +776,7 @@ const products =
         id: 1,
         title: "Hand Gesture Robot",
         description: "A robot which can be controlled through hand gestures using advanced sensor technology and machine learning algorithms.",
-        price: 3999,
+        price: 3999/400,
         category: "award-winning",
         rentPrice: 400,
         image: "https://i.ytimg.com/vi/rejZmqRrKMc/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAEOGz73dUm8iUDBBoSU2JhDki4Iw",
@@ -1037,7 +1043,10 @@ const products =
                 <div class="product-info">
                     <h3 class="product-title">${product.title}</h3>
                     <p class="product-description">${product.description}</p>
-                    <div class="product-price">₹${product.price.toLocaleString()}</div>
+                    <div class="product-price">
+                        ₹${product.price.toLocaleString()} 
+                        <span style="color:#666; font-weight:500; font-size:1rem;">/ ₹${product.rentPrice.toLocaleString()} Rent</span>
+                    </div>
                     <button class="info-btn" onclick="showProductInfo(${product.id})">View Details & Add to Cart</button>
                 </div>
             `;
@@ -1314,5 +1323,4 @@ const products =
     </script>
 </body>
 </html>
-
 
